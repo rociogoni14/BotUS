@@ -1,0 +1,32 @@
+
+- ¿Cuál es el procedimiento de contratación?
+- ¿Dónde se publican las listas provisionales de admitidos?
+- ¿Cuáles son los requisitos para poder solicitar un contrato temporal?
+- ¿Qué características hay que detallar en los contratos?
+- ¿Cuál es el plazo de presentación de solicitudes para los contratos temporales?
+- ¿Cuáles el plazo máximo para formular reclamaciones?
+- ¿Cuáles son los criterios de valoración de un candidato?
+- ¿Cuál es el plazo máximo para realizar la propuesta de adjudicación?
+- ¿Qué documentación hay que aportar en la solicitud de un contrato?
+- Dentro de los criterios de valoración, ¿cómo puntúa cada uno?
+- ¿Con cuánta antelración se publica la convocatoria de la entrevista? ¿ Dónde se publica?
+- Cuáles son los criterios de desempate para los candidatos?
+- ¿Dónde se registran las reclamaciones?
+- ¿Cuáles son los nombres de los proyectos ofertados en el mes de [mes]?
+- ¿Cuál es la información relativa a contratos ofertados para la titulación de [titulación] en el mes de [mes]?
+	La respuesta tiene que ser así:
+	- Referencia: [referencia]
+	- Proyecto: [proyecto]
+	- Retribución: [retribucion]
+	- Dedicación: [dedicacion]
+	- Requisitos específicos: [requisitos especificos]
+- ¿Cuál es el calendario de publicación de convocatorias de [año]?
+- ¿Cuál es el inicio y el fin del plazo de presentación de solicitudes para cada mes en [año]?
+- Quiero saber la tabla de categorías de contratación.
+- ¿Cuál es el proceso completo para contratar a un candidato?
+- ¿Cómo debe iniciar un investigador la tramitación de la convocatoria de seleción y futura contratación indefinida?
+- ¿Dónde puedo encontrar información relativa a cómo cumplimentar los campos de una oferta de contrato?
+- ¿Dónde se firman los documentos?
+- ¿Qué documentos hay que entregar para iniciar el proceso de contratación por parte del investigador?
+- ¿Cuáles son las instrucciones para la presentación de solicitudes como candidato?
+- ¿Cómo son las instrucciones para la subsanación de una solicitud?
