@@ -1,7 +1,7 @@
 import streamlit as st
 
 import openai
-from llama_index.core import VectorStoreIndex, Document, SimpleDirectoryReader, ServiceContext
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, ServiceContext
 from llama_index.llms.openai import OpenAI
 import streamlit.components.v1 as components
 import pandas as pd
@@ -68,7 +68,8 @@ with col1:
 with col2:
 
     st.markdown("<h1 style='text-align: center; color: #bd1353;'>BotUS Investigación</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; color: #bd1353;'>Tu asistente personalizado del área de investigación de la Universidad de Sevilla!</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: #bd1353;'>Tu asistente personalizado del área de investigación de la Universidad de Sevilla!</h3>",
+             unsafe_allow_html=True)
 
 st.logo("logo2_US.png", link = "https://investigacion.us.es/investigacion/contratos-personal/contratos-personal-hasta-mayo-2024")
 
@@ -84,7 +85,10 @@ st.html("""
 logo_dicc = {'user': 'avatar.png', 'assistant': 'US.png'}
 
 if "historial" not in st.session_state:
-    st.session_state.historial = [{'role':'assistant', 'content': 'Estoy aquí para ayudarte a resolver tus dudas sobre los contratos de investigación de la Universidad de Sevilla. ¡No dudes en preguntarme lo que necesites!'}] #Lista de diccionarios que almacena el contenido y el rol
+    st.session_state.historial = [{
+        'role':'assistant', 
+        'content': 'Estoy aquí para ayudarte a resolver tus dudas sobre los contratos de investigación de la Universidad de Sevilla. ¡No dudes en preguntarme lo que necesites!'
+        }] #Lista de diccionarios que almacena el contenido y el rol
 if "modelo" not in st.session_state:
     st.session_state.modelo = "gpt-3.5-turbo"
 if "temperatura" not in st.session_state:
@@ -102,10 +106,11 @@ def load_prompt(file_path):
     except Exception as e:
         st.error(f"Error al leer el archivo de prompt: {e}")
         return ""
-    
 
 def load_data():
-    with st.spinner(text = "Se está procesando toda la información relevante relacionada con los contratos del personal de investigación de la Universidad de Sevilla. En unos minutos podrá usar el chatbot"):
+    with st.spinner(text = 
+                    "Se está procesando toda la información relevante relacionada con los contratos del personal de investigación de la Universidad de Sevilla. En unos minutos podrá usar el chatbot"
+                    ):
         lectura_ficheros = SimpleDirectoryReader(input_dir ="./data_md", recursive = True)
         docs = lectura_ficheros.load_data()
         ajustes = ServiceContext.from_defaults(llm=OpenAI(model=st.session_state.modelo, temperature=st.session_state.temperatura, system_prompt=prompt_init))
@@ -114,8 +119,8 @@ def load_data():
         if "chat_engine" not in st.session_state.keys(): 
             st.session_state.chat_engine = st.session_state.index.as_chat_engine(chat_mode="react", verbose=True)
 
-
 prompt_file_path = "prompt\prompt_mejorado.txt"
+
 prompt_init = load_prompt(prompt_file_path)
 
 st.markdown("""
@@ -132,7 +137,7 @@ def response_generator(prompt):
     return response.response
 
 def escribir_input():
-    seleccion = [clave for clave,valor in st.session_state.items() if pd.api.types.is_bool(valor) and valor==True and clave!="init"]
+    seleccion = [clave for clave,valor in st.session_state.items() if pd.api.types.is_bool(valor) and valor and clave!="init"]
     #st.write("seleccion", seleccion)
     #st.write("tipo de seleccion", type(seleccion))
     st.session_state.historial.append({'role': 'user', 'content': seleccion[0]})
