@@ -5,8 +5,6 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, ServiceCon
 from llama_index.llms.openai import OpenAI
 import streamlit.components.v1 as components
 import pandas as pd
-#from openai import OpenAI
-
 
 
 
@@ -129,7 +127,7 @@ def load_prompt(file_path):
 
 #Función para leer todos los ficheros guardado en la carpeta data_md, guardarlos como documentos y vectorizarlos para que los use el modelo elegido por el usuario
 #que de forma predeterminada está definido como gpt-3.5-turbo
-def load_data():
+def load_all_data():
     with st.spinner(text = 
                     "Se está procesando toda la información relevante relacionada con los contratos del personal de investigación de la Universidad de Sevilla. En unos minutos podrá usar el chatbot"
                     ):
@@ -206,7 +204,7 @@ with st.sidebar:
     #Creación de slider para seleccionar la temperatura del modelo
     st.session_state.temperatura = st.slider("Elige la temperatura de tu modelo", min_value=0.0, max_value=1.0, value=0.5, step = 0.01)
     #Creación de botón que hace que se actualicen estos cambios al hacer click en él
-    st.button("Aceptar", on_click=load_data)
+    st.button("Aceptar", on_click=load_all_data)
     st.markdown("<h1 style='text-align: center; color: #bd1353;'>Preguntas frecuentes (FAQs)</h1>", unsafe_allow_html=True)
     contenedores = {}
     for clave in dicc_preg.keys():
@@ -241,7 +239,7 @@ with st.sidebar:
 
 #Con esto se cargan todos los ficheros al principio del todo y luego ya, salvo que se carge un nuevo modelo, no se vuelve a ejecutar la función
 if not st.session_state.init:
-    load_data()
+    load_all_data()
     st.session_state.init = True
         
 #Se escribe en el chat_message el historial de preguntas y respuestas que está guardado en una variable de sesión
