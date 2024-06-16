@@ -8,7 +8,7 @@ import pandas as pd
 
 
 
-
+openai.api_key = st.secrets.openai_key
 #Inicialización de la mayoría de variables de sesión
 if "mes" not in st.session_state:
     st.session_state.mes = "[MES]"
