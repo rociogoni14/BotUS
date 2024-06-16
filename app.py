@@ -139,7 +139,7 @@ def load_all_data():
         if "chat_engine" not in st.session_state.keys(): 
             st.session_state.chat_engine = st.session_state.index.as_chat_engine(chat_mode="react", verbose=True)
 
-prompt_file_path = "prompt\prompt_mejorado.txt"
+prompt_file_path = "prompt/prompt_mejorado.txt"
 
 #Se carga el prompt que se le va a mandar a la API de OpenAI
 prompt_init = load_prompt(prompt_file_path)
